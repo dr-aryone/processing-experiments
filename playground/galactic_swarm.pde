@@ -4,12 +4,12 @@ int minNumCircles, maxNumCircles;
 // setup the canvas
 void setup() {
   size(500, 500);
-  frameRate(20);
+  frameRate(50);
   smooth();
   cx = width/2;
   cy = height/2;
   radius = cx;
-  numCircles = 250;
+  numCircles = 500;
   thIncreaseRads = 2;
 }
 
