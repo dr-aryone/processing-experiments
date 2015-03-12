@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <script type="text/processing" data-processing-target="processing-canvas">
+      int tWidth = 800;
+      int tHeight = 600;
+      int tRed = 255;
+
+      void setup(){
+        colorMode(RGB);
+        size(tWidth,tHeight);
+        background(0);
+        smooth();
+      }
+
+      void draw(){
+        fill(tRed,tRed*2%255,tRed*3%255,15);
+        rect(0, 0, tWidth-2,tHeight-2);
+        fill(255);
+        ellipse(mouseX, mouseY, 25,25);
+      }
+
+      void changeBGColor(int tValue){
+        tRed = tValue;
+      } 
+    </script>
+    <canvas id="processing-canvas"></canvas>
+    <input type="range" id="color" min="0" max="255"/>
+    <script src="/lib/processing.js"></script>
+    <script type="text/javascript">
+      var slider  = document.getElementById("color"),
+          process = Processing.getInstanceById('processing-canvas');
+      
+      slider.onchange = function() {
+        console.log('test');
+        Processing.getInstanceById('processing-canvas').changeBGColor(slider.value);
+      };
+    </script>
+  </body>
+</html>
+
