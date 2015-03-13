@@ -3,7 +3,7 @@ float cx, cy, radius, circleDiam, thInterval, thIncrease, thIncreaseRads;
 int minNumCircles, maxNumCircles;
 // setup the canvas
 void setup() {
-  size(500, 500);
+  size(800, 800);
   frameRate(50);
   smooth();
   cx = width/2;
