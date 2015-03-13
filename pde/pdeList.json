@@ -1,0 +1,8 @@
+[
+    { "name": "dancing wave", "routeParam": "dancing_wave" },
+    { "name": "starfish and roses", "routeParam": "starfish_and_roses" },
+    { "name": "galactic swarm", "routeParam": "galactic_swarm" },
+    { "name": "click and move", "routeParam": "click_and_move" },
+    { "name": "mouse tracking", "routeParam": "mouse_tracking" },
+    { "name": "caseybloomquist.tumblr.com", "routeParam": "bloomquist" }
+]

@@ -23,3 +23,6 @@
 .navbar.handwritten .dropdown-menu {
   font-size: 20px;
 }
+#canvas-container {
+  margin-top: 2em;
+}
