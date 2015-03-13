@@ -1,0 +1,25 @@
+.navbar.navbar-minimal, .navbar.navbar-minimal .navbar-toggle {
+  background: transparent;
+  border: none;
+}
+
+/* fonts imported elsewhere:
+  Sue Ellen Francisco
+  Swanky and Moo Moo
+  Reenie Beanie
+  Shadows Into Light
+  Coming Soon
+  Architects Daughter
+  Shadows Into Light Two
+  Kalam: (400,300)
+*/
+.handwritten {
+  font-family: 'Swanky and Moo Moo';
+  font-weight: 400;
+}
+.navbar.handwritten, .navbar.handwritten .navbar-brand {
+  font-size: 24px;
+}
+.navbar.handwritten .dropdown-menu {
+  font-size: 20px;
+}
