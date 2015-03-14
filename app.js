@@ -5,7 +5,7 @@ app
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
-        template: '<div class="center-block" style="width:500px;text-align:center;margin-top:5em;"><h2>Select a sketch from the dropdown at the top right</h2></div>'
+        template: '<div class="center-block" style="width:700px;text-align:center;margin-top:7em;"><h1>Select a sketch from the dropdown above</h1></div>'
       })
       .when('/sketch/:sketch', {
         template: '<div class="center-block" id="canvas-container"><canvas id="sketch-canvas"></canvas></div>',
