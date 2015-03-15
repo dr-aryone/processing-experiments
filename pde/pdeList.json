@@ -4,5 +4,6 @@
     { "name": "☆ galactic swarm", "routeParam": "galactic_swarm" },
     { "name": "click and move", "routeParam": "click_and_move" },
     { "name": "mouse tracking", "routeParam": "mouse_tracking" },
+    { "name": "sierpinski chaos game", "routeParam": "sierpinski-chaos" },
     { "name": "caseybloomquist.tumblr.com", "routeParam": "bloomquist" }
 ]
