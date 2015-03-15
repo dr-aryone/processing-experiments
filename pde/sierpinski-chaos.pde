@@ -20,14 +20,15 @@ void setup() {
 
 void draw() {
   
-  Point opposite = points[int(random(points.length))],
-        halfway  = new Point(
-            randomPoint.x+(opposite.x-randomPoint.x)/2,
-            randomPoint.y+(opposite.y-randomPoint.y)/2
-        );
- halfway.draw();
- randomPoint = halfway;
- 
+  for (int i=0; i<5; i++) {
+    Point opposite = points[int(random(points.length))],
+          halfway  = new Point(
+              randomPoint.x+(opposite.x-randomPoint.x)/2,
+              randomPoint.y+(opposite.y-randomPoint.y)/2
+          );
+    halfway.draw();
+    randomPoint = halfway;
+  } 
 }
 
 class Point {
