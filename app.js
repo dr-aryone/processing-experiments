@@ -45,3 +45,11 @@ app
     }); 
   }])
 ;
+
+
+function canvasToImg(id) {
+  console.log('saving img');
+  var canvas = document.getElementById(id);
+  var img    = canvas.toDataURL("image/png");
+  var win    = window.open(img);
+}

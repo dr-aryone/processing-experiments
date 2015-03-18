@@ -5,5 +5,6 @@
     { "name": "click and move", "routeParam": "click_and_move" },
     { "name": "mouse tracking", "routeParam": "mouse_tracking" },
     { "name": "sierpinski chaos game", "routeParam": "sierpinski-chaos" },
+    { "name": "general case chaos game", "routeParam": "general_chaos" },
     { "name": "caseybloomquist.tumblr.com", "routeParam": "bloomquist" }
 ]
