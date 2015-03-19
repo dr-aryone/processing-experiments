@@ -5,11 +5,14 @@ app
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/', {
-        template: '<div class="center-block" style="width:700px;text-align:center;margin-top:7em;"><h1>Select a sketch from the dropdown above</h1></div>'
+        templateUrl: 'partials/rootPartial.html'
+      })
+      .when('/chaos-gallery', {
+        templateUrl: 'partials/galleryPartial.html',
+        controller: 'galleryController'
       })
       .when('/sketch/:sketch', {
-        template: '<div class="center-block" id="canvas-container"><canvas id="sketch-canvas"></canvas></div>',
-        //template: '<canvas ng-data-processing-sources="{{getPde()}}"></canvas>',
+        templateUrl: 'partials/sketchPartial.html',
         controller: 'sketchController'
       })
       .otherwise({
@@ -27,22 +30,37 @@ app
     };
   }])
   .controller('sketchController', ['$scope', '$routeParams', '$http', 'pdeService', function($scope, $routeParams, $http, pdeService) {
-    pdeService.getPde($routeParams.sketch, function(data) {
-      var compiledSketch = Processing.compile(data),
-          canvas = document.getElementById('sketch-canvas');
-      new Processing(canvas, compiledSketch);
-      document.getElementById('canvas-container').style.width=canvas.width+"px";
-    }, function(){
-      console.error($routeParams.sketch + ' not found!');
-    });
+    var canvas = document.getElementById('sketch-canvas');
+    pdeService.getPdeList(function(sketches){
+      $scope.sketch = $.grep(sketches, function(s){ return s.routeParam == $routeParams.sketch; })[0];
+      console.log('loading', $scope.sketch.name)
 
+      pdeService.getPde($scope.sketch.routeParam, function(data) {
+        var compiledSketch = Processing.compile(data);
+        console.log(canvas);
+        new Processing(canvas, compiledSketch);
+        document.getElementById('canvas-container').style.width = canvas.width+"px";
+      }, function(){
+        console.error($routeParams.sketch + ' not found!');
+      });
+    });
   }])
   .controller('navbarController', ['$scope', 'pdeService', function($scope, pdeService) {
     $scope.sketches = [];
     pdeService.getPdeList(function(data){
-      console.log(data);
-      $scope.sketches = data; // may have to JSON decode it first
+      $scope.sketches = data;
     }); 
+  }])
+  .controller('galleryController', ['$scope', function($scope) {
+    $scope.imgs = [
+      'tri',
+      'pent',
+      'hex',
+      'hept',
+      'oct',
+      'non',
+      'dec'
+    ];
   }])
 ;
 

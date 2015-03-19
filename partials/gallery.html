@@ -1,0 +1,13 @@
+<div id="gallery-container" class="container center-block">
+  <h1>Chaos Game Gallery</h1>
+  <p>
+    The following are links to 8000&times;8000 pixel images
+    that were all generated using the chaos game algorithm
+    for generating a Sierpinski triangle extended to use
+    additional vertices.
+  </p>
+
+  <ul>
+    <li ng-repeat="img in imgs"><a ng-href="gallery/{{img}}.png">{{img}}{{img == "tri" ? 'angle' : 'agon'}}</a></li>
+  </ul>
+</div>
