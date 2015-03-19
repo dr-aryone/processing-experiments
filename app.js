@@ -1,5 +1,5 @@
 // simple app to cause paths to load various processing sketches
-var app = angular.module('sketches', ['ngRoute']);
+var app = angular.module('sketches', ['ngRoute', 'ngSanitize']);
 
 app
   .config(['$routeProvider', function($routeProvider) {

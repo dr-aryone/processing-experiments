@@ -1,5 +1,5 @@
 <div class="center-block" id="canvas-container">
   <h1>{{ sketch.name }}</h1>
-  <p>{{ sketch.description }}</p>
+  <div ng-bind-html="sketch.description"></div>
   <canvas id="sketch-canvas"></canvas>
 </div>

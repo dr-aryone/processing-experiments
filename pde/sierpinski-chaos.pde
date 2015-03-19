@@ -1,3 +1,4 @@
+final int pointsPerFrame = 1000;
 Point[] points;
 Point randomPoint;
 
@@ -5,7 +6,6 @@ void setup() {
   size(600,600);
   background(255);
   stroke(0);
-  //frameRate(80);
   points = new Point[3];
   points[0] = new Point(width/2, 0);
   points[1] = new Point(0, height);
@@ -19,17 +19,22 @@ void setup() {
 }
 
 void draw() {
-  
-  for (int i=0; i<5; i++) {
+  // draw {pointsPerFrame} new points
+  for (int i=0; i<pointsPerFrame; i++) {
+    // pick one of the polygon vertices at random
     Point opposite = points[int(random(points.length))],
+    // find the point halfway between your lat point and this vertex
           halfway  = new Point(
               randomPoint.x+(opposite.x-randomPoint.x)/2,
               randomPoint.y+(opposite.y-randomPoint.y)/2
           );
+    // draw the halfway point
     halfway.draw();
+    // use the halfway point as your point for the next point
     randomPoint = halfway;
-  } 
+  }
 }
+
 
 class Point {
   int x, y;

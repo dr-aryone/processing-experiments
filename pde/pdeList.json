@@ -1,8 +1,36 @@
 [
-    { "name": "dancing wave", "routeParam": "dancing_wave" },
-    { "name": "starfish and roses", "routeParam": "starfish_and_roses", "description": "Based on the tutorial at http://krazydad.com/tutorials/circles_js/. A code error resulted in the 'galaxy swarm' sketch." },
-    { "name": "☆ galactic swarm", "routeParam": "galactic_swarm", "description": "Actually a broken version of 'starfish and roses', but I like it better." },
-    { "name": "sierpinski chaos game", "routeParam": "sierpinski-chaos", "description": "A processing implementation of the chaos-game algorithm to generate a Sierpinski triangle, as found at http://en.wikipedia.org/wiki/Sierpinski_triangle" },
-    { "name": "general case chaos game", "routeParam": "general_chaos", "description": "The Sierpinski triangle chaos game algorithm generalized to other shapes by adding additional vertices" },
-    { "name": "caseybloomquist.tumblr.com", "routeParam": "bloomquist", "desription": "Directly lifted from http://caseybloomquist.tumblr.com/post/113295734738/" }
+    {
+      "name": "dancing wave",
+      "routeParam": "dancing_wave"
+    },
+    {
+      "name": "starfish and roses",
+      "routeParam": "starfish_and_roses",
+      "description": "Based on the tutorial at http://krazydad.com/tutorials/circles_js/. A code error resulted in the 'galaxy swarm' sketch."
+    },
+    {
+      "name": "☆ galactic swarm",
+      "routeParam": "galactic_swarm",
+      "description": "Actually a broken version of 'starfish and roses', but I like it better."
+    },
+    {
+      "name": "sierpinski by duplication",
+      "routeParam": "sierpinski-duplicate",
+      "description": "A Sierpinski triangle iteratively created by shrinking and tripling the current image at each step"
+    },
+    {
+      "name": "sierpinski chaos game",
+      "routeParam": "sierpinski-chaos",
+      "description": "<p>A processing implementation of the chaos-game algorithm to generate a Sierpinski triangle:</p><blockquote><ol><li>Take 3 points in a plane to form a triangle, you need not draw it.</li><li>Randomly select any point inside the triangle and consider that your current position.</li><li>Randomly select any one of the 3 vertex points.</li><li>Move half the distance from your current position to the selected vertex.</li><li>Plot the current position.</li><li>Repeat from step 3.</li></ol><p>- <a href=\"http://en.wikipedia.org/wiki/Sierpinski_triangle#Chaos_game\">Wikipedia: Sierpinski triangle</a></p></blockquote>"
+    },
+    {
+      "name": "general case chaos game",
+      "routeParam": "general_chaos",
+      "description": "The Sierpinski triangle chaos game algorithm generalized to other shapes by adding additional vertices"
+    },
+    {
+      "name": "caseybloomquist.tumblr.com",
+      "routeParam": "bloomquist",
+      "description": "Directly lifted from <a href=\"http://caseybloomquist.tumblr.com/post/113295734738/\">caseybloomquist.tumblr.com/post/113295734738/</a>"
+    }
 ]

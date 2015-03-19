@@ -13,8 +13,12 @@
 .navbar.handwritten .dropdown-menu {
   font-size: 20px;
 }
+#sketch-canvas {
+  margin-top: 1em;
+}
 #canvas-container {
   margin-top: 2em;
+  margin-bottom: 2em;
   font-size: 1.5em;
 }
 #gallery-container {
@@ -22,3 +26,8 @@
   font-size: 1.5em;
   width: 500px;
 }
+
+.dropdown-toggle {
+  cursor: pointer;
+}
+

@@ -1,4 +1,5 @@
-# master branch is copied within gh-pages nas the sim/ directory
-# just make sure to ignore the .git/ folder and any .git* files
-sim/.git*
+
+*.swp
+Thumbs.db
+*~
 
