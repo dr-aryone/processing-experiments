@@ -24,9 +24,14 @@
       "description": "<p>A processing implementation of the chaos-game algorithm to generate a Sierpinski triangle:</p><blockquote><ol><li>Take 3 points in a plane to form a triangle, you need not draw it.</li><li>Randomly select any point inside the triangle and consider that your current position.</li><li>Randomly select any one of the 3 vertex points.</li><li>Move half the distance from your current position to the selected vertex.</li><li>Plot the current position.</li><li>Repeat from step 3.</li></ol><p>- <a href=\"http://en.wikipedia.org/wiki/Sierpinski_triangle#Chaos_game\">Wikipedia: Sierpinski triangle</a></p></blockquote>"
     },
     {
-      "name": "general case chaos game",
+      "name": "polygon chaos game",
       "routeParam": "general_chaos",
       "description": "The Sierpinski triangle chaos game algorithm generalized to other shapes by adding additional vertices"
+    },
+    {
+      "name": "fern chaos game",
+      "routeParam": "chaos-fern",
+      "description": "A Processing implementation of Thomasina's fern algorithm as a chaos game (based on http://math.bu.edu/DYSYS/arcadia/sect4.html and http://math.bu.edu/DYSYS/arcadia/appendix.html)"
     },
     {
       "name": "caseybloomquist.tumblr.com",
