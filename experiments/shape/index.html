@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Shapes</title>
+    <style>
+    body {
+      background: #333;
+      color: #F2F2F2;
+      font-family: Consolas, Inconsolata, 'Courier New', sans;
+      padding: 0px;
+      margin: 0px;
+    }
+    a {
+      color: #37f;
+    }
+    </style>
+  </head>
+  <body>
+    <canvas id="shapeSketch" data-processing-sources="shape.pde"></canvas>
+    <p id="mousePos">x: <span id="mouseX"></span>, y: <span id="mouseY"></span></p>
+    <script src="../../lib/processing.js"></script>
+    <script>
+    var mX = document.getElementById("mouseX"),
+        mY = document.getElementById("mouseY");
+    window.onmousemove = function(e) {
+      mX.innerHTML = e.clientX;
+      mY.innerHTML = e.clientY;
+    }
+    </script>
+  </body>
+</html>
