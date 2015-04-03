@@ -1,71 +1,89 @@
-final int W = 900, H = 600;
-final int BOID_RADIUS = 100;
+final int W = 1100, H = 800;
+final int BOID_RADIUS = 10;
+final int NUM_BOIDS = 100;
 
-Boid b;
+Boid[] boids;
 
 void setup() {
   size(W, H);
   frameRate(30);
-  
-  b = new Boid(W/2, H/2, #268bd2);
+  boids = new Boid[NUM_BOIDS];
+  float boidLength = float(BOID_RADIUS)*3;
+  color base = #268bd2,
+        alt  = #26d27c;
+  float ang = 0;
+  for (int i=0; i<NUM_BOIDS; i++) {
+    ang += (2*PI)/NUM_BOIDS;
+    boids[i] = new Boid(
+        W/2 + (W/2-NUM_BOIDS/2)*sin(ang), //*(i/NUM_BOIDS),
+        H/2 + (H/2-NUM_BOIDS/2)*cos(ang), //*(i/NUM_BOIDS),
+        color(
+          red(base)+(red(base)-red(alt))*i/NUM_BOIDS,
+          green(base)+(green(alt)-green(base))*i/NUM_BOIDS,
+          blue(base)+(blue(alt)-blue(base))*i/NUM_BOIDS
+        )
+    );
+  }
 }
 
 void draw() {
-  stroke(200);
-  noFill();
   background(#333333);
-  rect(0,0,W-2,H-2);
   
-  b.update();
-  b.draw();
+  for (Boid b : boids) {
+    b.update();
+    b.draw();
+  }
 }
 
 class Boid {
-  int x, y, color;
+  float x, y, v;
+  color fillColor;
   float th;
-  Boid (int _x, int _y, int _color) {
+  Boid (float _x, float _y, color _color) {
     x = _x;
     y = _y;
-    color = _color;
+    v = 2;
     th = 0;
+    fillColor = _color;
   }
   
   void draw() {
-    noStroke();
-    fill(color);
-    
-    arc(x, y, 2*BOID_RADIUS , 2*BOID_RADIUS, 0, 2*PI); // th-PI/4, th+5*PI/4);
-
-    //stroke(255);
-    _th = th+PI;
-
-    triangle(
-      x+cos(_th-PI/4)*BOID_RADIUS,y+sin(_th-PI/4)*BOID_RADIUS,
-      x+cos(_th+5*PI/4)*BOID_RADIUS,y+sin(_th+5*PI/4)*BOID_RADIUS,
-      x+cos(_th-PI/2)*BOID_RADIUS*2,y+sin(_th-PI/2)*BOID_RADIUS*2
+    fill(fillColor);
+    stroke(
+      color(
+        red(fillColor)*.875,
+        green(fillColor)*.875,
+        blue(fillColor)*.875
+      )
     );
-    /*
-    fill(#dc322f);
-    text("1", x+cos(th-PI/4)*BOID_RADIUS, y+sin(th-PI/4)*BOID_RADIUS)
-    text("2", x+cos(th+5*PI/4)*BOID_RADIUS, y+sin(th+5*PI/4)*BOID_RADIUS)
-    text("3", x+cos(th-PI/2)*BOID_RADIUS*2, y+sin(th-PI/2)*BOID_RADIUS*2)
-    */
+    
+    translate(x,y);
+    rotate(th);
+
+    beginShape();
+    vertex(-BOID_RADIUS, -BOID_RADIUS);
+    bezierVertex(
+        -BOID_RADIUS*2, BOID_RADIUS*1.5,
+        BOID_RADIUS*2,  BOID_RADIUS*1.5,
+        BOID_RADIUS, -BOID_RADIUS       
+    );
+    vertex(0,  -BOID_RADIUS*3);
+    vertex(-BOID_RADIUS, -BOID_RADIUS);
+    endShape();
+
+    rotate(-th);
+    translate(-x,-y);
   }
   
-  void update() {}
+  void update() {
+    th = atan2(mouseY-y,mouseX-x) - PI/2;
+    /*
+    rotate(th);
+    x += v;
+    rotate(-th);
+    if (x > width || x < 0 || y > height || y < 0)
+      th += PI;
+    */
+  }
 }
 
-// find the two tangent points on a circle corresponding with lines that pass
-// through a point outside the circle
-// 
-// Parameters:
-//   cx, cy    center point of the circle
-//   r         radius of the circle
-//   px, py    point outside the circle
-// Return Value:
-//   [[t1x, t1y], [t2x, t2y]]  an array of arrays of ints containing the coords
-//                             of the two points on the circle that are on the
-//                             tangent line with px,py
-int[][] tangents(cx, cy, r, px, py) {
-  //http://math.stackexchange.com/a/543522/38326
-}
