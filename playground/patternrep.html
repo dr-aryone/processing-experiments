@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+  </head>
+  <body>
+    <p>Input image URL below</p>
+    <p><input id="imgurl" type="text" placeholder="Image URL" /></p>
+    <p><input id="imgload" type="submit" value="Load Image" /></p>
+    <canvas id="patternrep" data-processing-sources="patternrep.pde"></canvas>
+
+    <script src="/lib/processing.js"></script>
+    <script>
+      var p = Processing.getInstanceById("patternrep");
+      document.getElementById("imgload").onclick = function() {
+        p.loadImg(document.getElementById("imgurl").value);
+      };
+    </script>
+  </body>
+</html>
+

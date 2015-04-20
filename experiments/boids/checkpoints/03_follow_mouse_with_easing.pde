@@ -19,10 +19,6 @@ void draw() {
   boid.draw();
 }
 
-
-
-
-// Boid type
 class Boid {
   PVector position, velocity;
   float direction;
@@ -35,10 +31,7 @@ class Boid {
   }
   
   void update() {
-    // steer to avoid the mouse:
-    //     if mouse is within 50 px and 25px circle around mouse is within my path:
-    //         steer in the proper direction to avoid the mouse
-    if (direction)
+    // turn to face the mosue
     direction = atan2(mouseY-position.y,mouseX-position.x) - PI/2;
 
     // get distance to mouse
@@ -87,13 +80,6 @@ class Boid {
 
     rotate(-direction);
     translate(-position.x,-position.y);
-  }
-  
-  
-  boolean collidesWith(Boid other) {
-    // simple circle bound collision; could be improved later,
-    // but I want to leave some space between the boids anyway
-    return (position.dist(other.position) < BOID_RADIUS);
   }
 }
 
