@@ -1,12 +1,21 @@
 // see: https://hal.archives-ouvertes.fr/hal-00367972/document
 
-
 // globals
-int W=1000, H=1000, FR=100, STEP=1, fibindex=0, segindex=0, dir=0;
-String fibword1 = "0", fibword2 = "01";
+int 
+  // Constants
+  W=5000, // viewport width
+  H=5000, // viewport height
+  FR=150, // framerate
+  STEP=1, // how long of a line segment should be drawn each step
+
+  // Program variables
+  fibindex=0,
+  segindex=0;
+float theta = 0;
+String fibword1 = "1", fibword2 = "0";
 PVector position;
 
-// generate the next fibonacci word segment
+// generate the next fibonacci word segment when needed
 void nextseg() {
 	String next = fibword1 + fibword2;
 	fibword1 = fibword2;
@@ -19,52 +28,40 @@ void setup() {
   size(W, H);
   frameRate(FR);
   smooth();
-  int cx = 0;//width/2;
-  int cy = height;//height/2;
+  int cx = width-100;
+  int cy = 100;
 	position = new PVector(cx, cy);
 }
 
 // main draw loop
 void draw() {
-	PVector currPos = new PVector(position.x, position.y);
-	switch (dir) {
-		case 0:
-			position.y -= STEP; break;
-		case 1:
-			position.x += STEP; break;
-		case 2:
-			position.y += STEP; break;
-		case 3:
-			position.x -= STEP; break;
-	}
-	line(currPos.x,currPos.y, position.x,position.y);
+  translate(position.x, position.y);
+  rotate(theta);
+  
+	line(0,0, 0,STEP);
+  
+  PVector move = new PVector(0, STEP);
+  move.rotate(theta);
+  position.add(move);
 
 	update();
 }
 
+// update function
 void update() {
 	char nextChar = fibword2[segindex];
 
 	if (str(nextChar) == "0") {
-		if (fibindex%2 == 0)
-			dir = (dir-1)%4;
+		if ((fibindex+1)%2 == 0)
+      theta -= HALF_PI;
 		else
-			dir = (dir+1)%4;
+      theta += HALF_PI;
 	}
 	
+  // increment the segment index and the fibonacci word index
 	segindex++;
 	fibindex++;
+  // if we've reached the end of a word segment, load up the next one
 	if (segindex >= fibword2.length) nextseg();
-
-  /*
-	console.log(
-		"position: "+position.x+","+position.y+" | "+
-		"fibindex: "+fibindex+" | " +
-		"segindex: "+segindex+" | " +
-		"dir: "+dir+" | "+
-		"fibwords: "+fibword1+","+fibword2+" | "+
-		"nextChar: "+nextChar
-	);
-	//*/
 }
 
