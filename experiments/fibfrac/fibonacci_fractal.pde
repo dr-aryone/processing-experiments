@@ -1,19 +1,23 @@
 // see: https://hal.archives-ouvertes.fr/hal-00367972/document
 
-// globals
+// Constants
 int 
-  // Constants
-  W=5000, // viewport width
+  W=10000, // viewport width
   H=5000, // viewport height
   FR=150, // framerate
-  STEP=1, // how long of a line segment should be drawn each step
+  STEP=1; // how long of a line segment should be drawn each step
 
-  // Program variables
-  fibindex=0,
-  segindex=0;
-float theta = 0;
-String fibword1 = "1", fibword2 = "0";
-PVector position;
+// Program globals
+int
+  fibindex=0, // current index within the entire tending-toward-infinity fibonacci word
+  segindex=0; // current index within the current fibonacci word segment
+float
+  theta = 0; // current direction of travel, expressed in radians
+String
+  fibword1 = "1", fibword2 = "0"; // previous and current word segments
+PVector
+  position; // current x,y position in the canvas
+
 
 // generate the next fibonacci word segment when needed
 void nextseg() {
@@ -47,13 +51,17 @@ void draw() {
 	update();
 }
 
-// update function
+// update function; called in draw()
 void update() {
+  // grab F[n], the nth character from F, the infinite fibonacci string
 	char nextChar = fibword2[segindex];
 
+  // if char F[n] is '0':
 	if (str(nextChar) == "0") {
+    // if n is even, turn left 
 		if ((fibindex+1)%2 == 0)
       theta -= HALF_PI;
+    // else n is odd; turn right
 		else
       theta += HALF_PI;
 	}
