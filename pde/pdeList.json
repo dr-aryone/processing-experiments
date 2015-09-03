@@ -9,7 +9,7 @@
       "description": "Based on the tutorial at http://krazydad.com/tutorials/circles_js/. A code error resulted in the 'galaxy swarm' sketch."
     },
     {
-      "name": "☆ galactic swarm",
+      "name": "galactic swarm",
       "routeParam": "galactic_swarm",
       "description": "Actually a broken version of 'starfish and roses', but I like it better."
     },
@@ -37,5 +37,10 @@
       "name": "caseybloomquist.tumblr.com",
       "routeParam": "bloomquist",
       "description": "Directly lifted from <a href=\"http://caseybloomquist.tumblr.com/post/113295734738/\">caseybloomquist.tumblr.com/post/113295734738/</a>"
+    },
+    {
+      "name": "fibonacci fractal",
+      "routeParam": "fibonacci_fractal",
+      "description": "A fractal drawing implementation based on <a href=\"https://hal.archives-ouvertes.fr/hal-00367972/document\">Alexis Monnerot-Dumaine's research paper \"The Fibonacci Word fractal\"</a.>"
     }
 ]
