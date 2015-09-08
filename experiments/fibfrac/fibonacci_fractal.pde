@@ -3,9 +3,9 @@
 // Constants
 int 
   W=10000, // viewport width
-  H=5000, // viewport height
+  H=10000, // viewport height
   FR=150, // framerate
-  STEP=1; // how long of a line segment should be drawn each step
+  STEP=.75; // how long of a line segment should be drawn each step
 
 // Program globals
 int
@@ -29,6 +29,7 @@ void nextseg() {
 
 // setup the canvas
 void setup() {
+  background(255);
   size(W, H);
   frameRate(FR);
   smooth();
