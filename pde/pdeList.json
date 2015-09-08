@@ -31,7 +31,7 @@
     {
       "name": "fern chaos game",
       "routeParam": "chaos-fern",
-      "description": "A Processing implementation of Thomasina's fern algorithm as a chaos game (based on http://math.bu.edu/DYSYS/arcadia/sect4.html and http://math.bu.edu/DYSYS/arcadia/appendix.html)"
+      "description": "A Processing implementation of Barnsley's fern algorithm as a chaos game (based on https://en.wikipedia.org/wiki/Barnsley_fern)"
     },
     {
       "name": "caseybloomquist.tumblr.com",
