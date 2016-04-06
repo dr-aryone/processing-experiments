@@ -1,12 +1,17 @@
 [
     {
+      "name": "archimedean spiral",
+      "routeParam": "archimedean_square_spiral",
+			"description": "See <a href=\"https://en.wikipedia.org/wiki/Archimedean_spiral\">https://en.wikipedia.org/wiki/Archimedean_spiral</a>"
+    },
+		{
       "name": "dancing wave",
       "routeParam": "dancing_wave"
     },
     {
       "name": "starfish and roses",
       "routeParam": "starfish_and_roses",
-      "description": "Based on the tutorial at http://krazydad.com/tutorials/circles_js/. A code error resulted in the 'galaxy swarm' sketch."
+      "description": "Based on the tutorial at <a href=\"http://krazydad\">http://krazydad.com/tutorials/circles_js/</a>. A code error resulted in the 'galaxy swarm' sketch."
     },
     {
       "name": "galactic swarm",
