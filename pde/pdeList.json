@@ -1,7 +1,7 @@
 [
     {
       "name": "archimedean spiral",
-      "routeParam": "archimedean_square_spiral",
+      "routeParam": "archimedean_spiral",
 			"description": "See <a href=\"https://en.wikipedia.org/wiki/Archimedean_spiral\">https://en.wikipedia.org/wiki/Archimedean_spiral</a>"
     },
 		{
